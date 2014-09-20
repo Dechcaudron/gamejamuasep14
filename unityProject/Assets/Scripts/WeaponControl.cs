@@ -100,7 +100,6 @@ public class WeaponControl : MonoBehaviour
 				AimTarget = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
 				AimTarget.z = RayOrigin.position.z;
 
-
 				//Fire if so
 				if (isFiring) {
 						ammo -= AmmoUseSpeed;

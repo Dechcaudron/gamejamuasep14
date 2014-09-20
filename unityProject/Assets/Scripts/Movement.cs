@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
 		bool canDoubleJump = true;
 		bool lookingRight = true;
 		CharacterController controller;
+
+		public StepBehaviour MyStepBehaviour;
 	
 		// Use this for initialization
 		void Start ()
@@ -59,7 +61,7 @@ public class Movement : MonoBehaviour
 
 						}
 
-						myAnimator.SetFloat ("protaSpeed", Mathf.Abs (xSpeed));
+						myAnimator.SetFloat ("protaSpeed", xSpeed);
 
 				} else {
 						JumpAnimation ();
@@ -69,5 +71,19 @@ public class Movement : MonoBehaviour
 		void JumpAnimation ()
 		{
 				myAnimator.SetBool ("touchingGround", false);
+		}
+
+		void OnTriggerEnter (Collider a_collider)
+		{
+				if (a_collider.tag == "WaterMass") {
+						MyStepBehaviour.WalkingOnWater = true;
+				}
+		}
+	
+		void OnTriggerExit (Collider a_collider)
+		{
+				if (a_collider.tag == "WaterMass") {
+						MyStepBehaviour.WalkingOnWater = false;
+				}
 		}
 }
