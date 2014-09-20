@@ -4,30 +4,32 @@ using System.Collections;
 public class CameraMovement : MonoBehaviour
 {	
 		public GameObject Player;
-		public int PixelMarginsH;
-		public int PixelMarginsVUp;
-		public int PixelMarginsVDown;
+		public float MarginH;
+		public float MarginVUp;
+		public float MarginVDown;
 		public float MoveSpeed;
 
 		// Update is called once per frame
 		void Update ()
 		{
 				Vector3 screenPosition = camera.WorldToScreenPoint (Player.transform.position);
+				print (screenPosition.x / Screen.width);
 
-				if (screenPosition.x > Screen.width - PixelMarginsH) {
-						transform.Translate (MoveSpeed * Time.deltaTime * (screenPosition.x - Screen.width + PixelMarginsH), 0, 0);
+				if (screenPosition.x / Screen.width > 1f - MarginH) {
+						//print (1f - screenPosition.x / Screen.width);
+						transform.Translate (MoveSpeed * Time.deltaTime * (screenPosition.x / Screen.width - (1f - MarginH)), 0, 0);
 				}
 
-				if (screenPosition.x < PixelMarginsH) {
-						transform.Translate (MoveSpeed * Time.deltaTime * (screenPosition.x - PixelMarginsH), 0, 0);
+				if (screenPosition.x / Screen.width < MarginH) {
+						transform.Translate (MoveSpeed * Time.deltaTime * (screenPosition.x / Screen.width - MarginH), 0, 0);
 				}
 
-				if (screenPosition.y > Screen.width - PixelMarginsVUp) {
-						transform.Translate (0, MoveSpeed * Time.deltaTime * (screenPosition.y - Screen.width + PixelMarginsVUp), 0);
+				if (screenPosition.y / Screen.height > 1f - MarginVUp) {
+						transform.Translate (0, MoveSpeed * Time.deltaTime * (screenPosition.y / Screen.height - (1f - MarginVUp)), 0);
 				}
 		
-				if (screenPosition.y < PixelMarginsVDown) {
-						transform.Translate (0, MoveSpeed * Time.deltaTime * (screenPosition.y - PixelMarginsVDown), 0);
+				if (screenPosition.y / Screen.height < MarginVDown) {
+						transform.Translate (0, MoveSpeed * Time.deltaTime * (screenPosition.y / Screen.height - MarginVDown), 0);
 				}
 	 		
 		}
