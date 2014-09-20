@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour {
 	bool canJump = true;
 	bool doubleJumpUnlocked = true;
 	bool canDoubleJump = true;
+	bool lookingRight = true;
 	CharacterController controller;
 	
 	// Use this for initialization
@@ -49,19 +50,23 @@ public class Movement : MonoBehaviour {
 		
 		controller.Move (new Vector3 (xSpeed, ySpeed) * Time.deltaTime);
 		if (controller.isGrounded){
-			if (xSpeed < -1)
+			if (xSpeed < -1){
+				lookingRight = false;
 				prota.animation.CrossFade("RunLeft",0.25f);
-			else if (xSpeed > 1)
+			}
+			else if (xSpeed > 1){
+				lookingRight = false;
 				prota.animation.CrossFade("RunRight",0.25f);
+			}
 		}
 		else
 			JumpAnimation();
 	}
 
 	void JumpAnimation(){
-		if (xSpeed < -0.1)
+		if (lookingRight)
 			prota.animation.CrossFade("JumpRight",0.25f);
-		else if (xSpeed > 0)
+		else
 			prota.animation.CrossFade("JumpRight",0.25f);
 	}
 }
