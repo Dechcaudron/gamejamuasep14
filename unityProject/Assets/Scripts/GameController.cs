@@ -5,7 +5,6 @@ using System.Diagnostics;
 public class GameController : MonoBehaviour
 {
 		public const int NUMBER_OF_LEVELS = 1;
-
 		private static Stopwatch gameWatch;
 
 		public static bool[] UnlockedLevels {
@@ -50,16 +49,19 @@ public class GameController : MonoBehaviour
 						UnlockedLevels [i] = PlayerPrefs.HasKey ("LevelUnlocked_" + i.ToString ());
 				}
 		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-			
-		}
 
-		public static void SpawnEnemy (GameObject a_enemy, Vector3 a_position)
+		public static GameObject SpawnEnemy (GameObject a_enemy, Vector3 a_position)
 		{
-				GameObject.Instantiate (a_enemy, a_position, Quaternion.identity);
+				return (GameObject)GameObject.Instantiate (a_enemy, a_position, Quaternion.identity);
+		}
+	
+		public static void SpawnDeathLinkedEnemy (GameObject a_enemy, Vector3 a_position, ITriggableByDeath a_toTrigger)
+		{
+				a_enemy = (GameObject)GameObject.Instantiate (a_enemy, a_position, Quaternion.identity);
+				EnemyHealth t_enemyHealth = a_enemy.GetComponent<EnemyHealth> ();
+
+				if (t_enemyHealth != null)
+						a_toTrigger.Subscribe (t_enemyHealth);
 		}
 
 		public static void StartLevel (int a_levelIndex)
