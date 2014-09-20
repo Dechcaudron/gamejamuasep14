@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: e9231155c37d94c6493af0c8f490e94d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Box01
+    100002: //RootNode
+    100004: Omni01
+    100006: Omni02
+    100008: Spot01
+    100010: Spot01.Target
+    100012: Bone01
+    100014: Bone02
+    100016: Bone03
+    100018: Bone04
+    100020: Bone05
+    100022: Bone06
+    100024: Bone07
+    100026: Bone08
+    100028: Bone09
+    100030: Bone10
+    100032: Bone11
+    100034: Bone12
+    100036: CaracolPinchos
+    100038: Dummy01
+    100040: Dummy02
+    100042: Dummy03
+    100044: Dummy04
+    100046: Dummy05
+    100048: Dummy06
+    100050: Dummy07
+    100052: Dummy08
+    100054: Dummy09
+    400000: Box01
+    400002: //RootNode
+    400004: Omni01
+    400006: Omni02
+    400008: Spot01
+    400010: Spot01.Target
+    400012: Bone01
+    400014: Bone02
+    400016: Bone03
+    400018: Bone04
+    400020: Bone05
+    400022: Bone06
+    400024: Bone07
+    400026: Bone08
+    400028: Bone09
+    400030: Bone10
+    400032: Bone11
+    400034: Bone12
+    400036: CaracolPinchos
+    400038: Dummy01
+    400040: Dummy02
+    400042: Dummy03
+    400044: Dummy04
+    400046: Dummy05
+    400048: Dummy06
+    400050: Dummy07
+    400052: Dummy08
+    400054: Dummy09
+    2300000: Box01
+    3300000: Box01
+    4300000: Box01
+    4300002: CaracolPinchos
+    7400000: StandBy
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: CaracolPinchos
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: StandBy
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CaracolPinchos
+        weight: 1
+      - path: Dummy09
+        weight: 1
+      - path: Dummy09/Dummy01
+        weight: 1
+      - path: Dummy09/Dummy01/Bone01
+        weight: 1
+      - path: Dummy09/Dummy01/Bone01/Bone02
+        weight: 1
+      - path: Dummy09/Dummy01/Bone01/Bone02/Bone03
+        weight: 1
+      - path: Dummy09/Dummy01/Bone04
+        weight: 1
+      - path: Dummy09/Dummy01/Bone04/Bone05
+        weight: 1
+      - path: Dummy09/Dummy01/Bone04/Bone05/Bone06
+        weight: 1
+      - path: Dummy09/Dummy01/Bone07
+        weight: 1
+      - path: Dummy09/Dummy01/Bone07/Bone08
+        weight: 1
+      - path: Dummy09/Dummy01/Bone07/Bone08/Bone09
+        weight: 1
+      - path: Dummy09/Dummy01/Bone10
+        weight: 1
+      - path: Dummy09/Dummy01/Bone10/Bone11
+        weight: 1
+      - path: Dummy09/Dummy01/Bone10/Bone11/Bone12
+        weight: 1
+      - path: Dummy09/Dummy01/Dummy02
+        weight: 1
+      - path: Dummy09/Dummy03
+        weight: 1
+      - path: Dummy09/Dummy04
+        weight: 1
+      - path: Dummy09/Dummy05
+        weight: 1
+      - path: Dummy09/Dummy06
+        weight: 1
+      - path: Dummy09/Dummy07
+        weight: 1
+      - path: Dummy09/Dummy08
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
