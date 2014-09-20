@@ -21,30 +21,30 @@ public class Enemy1Movement : MonoBehaviour
 		void Update ()
 		{
 
-		if ((animator.transform.rotation.eulerAngles.y < 90 || animator.transform.rotation.eulerAngles.y > 270)&&animator.transform.localScale.x==1) {
-			animator.transform.localScale = new Vector3 (-1.0f, 1.0f, 1.0f);
-			animator.transform.rotation = Quaternion.Euler (0, 90, 0);
-			Debug.Log ("Flip1");
-		} else if ((animator.transform.rotation.eulerAngles.y < 90 || animator.transform.rotation.eulerAngles.y > 270)&&animator.transform.localScale.x==-1) {
-			animator.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
-			animator.transform.rotation = Quaternion.Euler (0, -90, 0);
-			Debug.Log ("Flip2");
-		}
+				if ((animator.transform.rotation.eulerAngles.y < 90 || animator.transform.rotation.eulerAngles.y > 270) && animator.transform.localScale.x == 1) {
+						animator.transform.localScale = new Vector3 (-1.0f, 1.0f, 1.0f);
+						animator.transform.rotation = Quaternion.Euler (0, 90, 0);
+						Debug.Log ("Flip1");
+				} else if ((animator.transform.rotation.eulerAngles.y < 90 || animator.transform.rotation.eulerAngles.y > 270) && animator.transform.localScale.x == -1) {
+						animator.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+						animator.transform.rotation = Quaternion.Euler (0, -90, 0);
+						Debug.Log ("Flip2");
+				}
 		
 		
 		
-		counter += 2 * Time.deltaTime * Speed;
+				counter += 2 * Time.deltaTime * Speed;
 				transform.position = new Vector3 (transform.position.x + Speed * Mathf.Sign (wayPoints [i].transform.position.x - transform.position.x) * Time.deltaTime * Mathf.Abs (Mathf.Sin (counter)), transform.position.y);
 				if (transform.position.x < wayPoints [i].transform.position.x) {
-					if(animator.transform.localScale.x==1)
-				animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180, 0), Time.deltaTime * 1.0f * Speed * 2);
-					else
-				animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0, 0), Time.deltaTime * 1.0f * Speed * 2);
-		} else { 
-			if(animator.transform.localScale.x==1)
-				animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0, 0), Time.deltaTime * 1.0f * Speed * 2);
-			else
-				animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180, 0), Time.deltaTime * 1.0f * Speed * 2);
+						if (animator.transform.localScale.x == 1)
+								animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180, 0), Time.deltaTime * 1.0f * Speed * 2);
+						else
+								animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0, 0), Time.deltaTime * 1.0f * Speed * 2);
+				} else { 
+						if (animator.transform.localScale.x == 1)
+								animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0, 0), Time.deltaTime * 1.0f * Speed * 2);
+						else
+								animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180, 0), Time.deltaTime * 1.0f * Speed * 2);
 
 				}
 
