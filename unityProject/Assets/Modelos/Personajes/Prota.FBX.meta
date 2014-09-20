@@ -108,7 +108,7 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
-    animationCompression: 1
+    animationCompression: 0
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -556,8 +556,8 @@ ModelImporter:
     - serializedVersion: 16
       name: StandBy
       takeName: Take 001
-      firstFrame: 70
-      lastFrame: 129
+      firstFrame: 71
+      lastFrame: 130
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
