@@ -34,13 +34,11 @@ public class Movement : MonoBehaviour {
 		
 		if (canJump && Input.GetButtonDown ("Jump")) {
 			ySpeed = controller.velocity.y + jumpSpeed;
-			//JumpAnimation();
 			canJump = false;
 		} 
 		else if (doubleJumpUnlocked) {
 			if (canDoubleJump && Input.GetButtonDown ("Jump")) {
 				ySpeed = controller.velocity.y/2 + jumpSpeed;
-				//JumpAnimation();
 				canDoubleJump = false;
 			}
 		}
@@ -58,9 +56,13 @@ public class Movement : MonoBehaviour {
 				lookingRight = false;
 				prota.animation.CrossFade("RunRight",0.25f);
 			}
+			else if (xSpeed == 0)
+			prota.animation.CrossFade("StandBy",0.25f);
 		}
 		else
 			JumpAnimation();
+
+		//Debug.Log(xSpeed);
 	}
 
 	void JumpAnimation(){
