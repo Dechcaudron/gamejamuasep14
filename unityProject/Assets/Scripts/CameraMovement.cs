@@ -13,7 +13,6 @@ public class CameraMovement : MonoBehaviour
 		void Update ()
 		{
 				Vector3 screenPosition = camera.WorldToScreenPoint (Player.transform.position);
-				print (screenPosition.x / Screen.width);
 
 				if (screenPosition.x / Screen.width > 1f - MarginH) {
 						//print (1f - screenPosition.x / Screen.width);

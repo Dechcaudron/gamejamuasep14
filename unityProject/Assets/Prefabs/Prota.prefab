@@ -659,6 +659,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400086}
   - 111: {fileID: 11100000}
+  - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: Prota
   m_TagString: Untagged
@@ -1237,6 +1238,21 @@ Transform:
   - {fileID: 400082}
   m_Father: {fileID: 400000}
   m_RootOrder: 0
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b357b59c696de496990eb171e0163d52, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1894b27b0fce04ea09067b1e6edcfd06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -1286,7 +1302,7 @@ MonoBehaviour:
   AmmoUseSpeed: .100000001
   AmmoAttack: 1
   RayVertices: 12
-  RayMovementSpeed: .0500000007
+  RayMovementSpeed: .100000001
   RayMovementRange: .300000012
 --- !u!120 &12000000
 LineRenderer:
