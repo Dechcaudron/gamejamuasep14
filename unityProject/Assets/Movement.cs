@@ -5,6 +5,8 @@ public class Movement : MonoBehaviour {
 
 	public float jumpSpeed = 5.0f;
 	public float runSpeed = 10.0f;
+	public GameObject prota;
+	
 	float xSpeed = 0.0f;
 	float ySpeed = 0.0f;
 	bool canJump = true;
@@ -31,10 +33,13 @@ public class Movement : MonoBehaviour {
 		
 		if (canJump && Input.GetButtonDown ("Jump")) {
 			ySpeed = controller.velocity.y + jumpSpeed;
+			//JumpAnimation();
 			canJump = false;
-		} else if (doubleJumpUnlocked) {
+		} 
+		else if (doubleJumpUnlocked) {
 			if (canDoubleJump && Input.GetButtonDown ("Jump")) {
 				ySpeed = controller.velocity.y/2 + jumpSpeed;
+				//JumpAnimation();
 				canDoubleJump = false;
 			}
 		}
@@ -43,6 +48,20 @@ public class Movement : MonoBehaviour {
 		xSpeed = runSpeed * Input.GetAxis ("Horizontal");
 		
 		controller.Move (new Vector3 (xSpeed, ySpeed) * Time.deltaTime);
-		
+		if (controller.isGrounded){
+			if (xSpeed < -1)
+				prota.animation.CrossFade("RunLeft",0.25f);
+			else if (xSpeed > 1)
+				prota.animation.CrossFade("RunRight",0.25f);
+		}
+		else
+			JumpAnimation();
+	}
+
+	void JumpAnimation(){
+		if (xSpeed < -0.1)
+			prota.animation.CrossFade("JumpRight",0.25f);
+		else if (xSpeed > 0)
+			prota.animation.CrossFade("JumpRight",0.25f);
 	}
 }
