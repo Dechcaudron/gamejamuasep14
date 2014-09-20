@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour {
 		if (controller.isGrounded) {
 			canJump = true;
 			canDoubleJump = true;
+			ySpeed=0;
 		} else {
 			//canJump = false;
 		}
@@ -38,7 +39,7 @@ public class Movement : MonoBehaviour {
 		} 
 		else if (doubleJumpUnlocked) {
 			if (canDoubleJump && Input.GetButtonDown ("Jump")) {
-				ySpeed = controller.velocity.y/2 + jumpSpeed;
+				ySpeed = jumpSpeed;
 				canDoubleJump = false;
 			}
 		}
