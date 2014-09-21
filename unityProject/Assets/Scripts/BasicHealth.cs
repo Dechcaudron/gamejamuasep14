@@ -7,6 +7,9 @@ public class BasicHealth : MonoBehaviour
 				get {
 						return health;
 				}
+				set {
+						health = value;
+				}
 		}
 
 		public float PercentualHealth {

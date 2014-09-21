@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour
 {	
-		public GameObject Player;
+		public Transform transformToCenter;
 		public float MarginH;
 		public float MarginVUp;
 		public float MarginVDown;
@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				Vector3 screenPosition = camera.WorldToScreenPoint (Player.transform.position);
+				Vector3 screenPosition = camera.WorldToScreenPoint (transformToCenter.position);
 				Vector3 t_camTranslation;
 
 				if (screenPosition.x / Screen.width > 1f - MarginH) {

@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
 						
 
 				} else {
-						if (controller.velocity.y < -0.5) {
+						if (controller.velocity.y < -3f) {
 								myAnimator.SetBool ("isFalling", true);
 
 						}

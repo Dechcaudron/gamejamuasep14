@@ -29,6 +29,10 @@ public class WeaponControl : MonoBehaviour
 				get {
 						return ammo / MaxAmmo;
 				}
+
+				set {
+						ammo = value;
+				}
 		}
 
 		private bool isFiring {
