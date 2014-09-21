@@ -73,18 +73,12 @@ public class Movement : MonoBehaviour
 								myAnimator.SetBool ("isFalling", true);
 
 						}
-						//JumpAnimation ();
 				}
 		}
 
 		void FixedUpdate ()
 		{
 				transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
-		}
-
-		void JumpAnimation ()
-		{
-				myAnimator.SetBool ("touchingGround", false);
 		}
 
 		void OnTriggerEnter (Collider a_collider)

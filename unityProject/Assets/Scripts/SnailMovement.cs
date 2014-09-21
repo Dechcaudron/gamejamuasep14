@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy1Movement : MonoBehaviour
+public class SnailMovement : MonoBehaviour
 {
 
 		public float Speed = 1.0f;
@@ -27,12 +27,12 @@ public class Enemy1Movement : MonoBehaviour
 						Debug.Log (hit.distance);
 
 						//rigidbody.AddForce(-hit.normal *0.1f* Time.deltaTime);
-			//transform.position = new Vector3 (transform.position.x - (hit.distance * Mathf.Abs (hit.normal.x)), transform.position.y - (hit.distance * Mathf.Abs (hit.normal.y)), transform.position.z);
+						//transform.position = new Vector3 (transform.position.x - (hit.distance * Mathf.Abs (hit.normal.x)), transform.position.y - (hit.distance * Mathf.Abs (hit.normal.y)), transform.position.z);
 						
 						animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (animator.transform.rotation.eulerAngles.x, animator.transform.rotation.eulerAngles.y, 90 * hit.normal.x * hit.normal.y), 2.0f * Time.deltaTime * Speed);
 						transform.position = new Vector3 (hit.point.x + 0.1f * -hit.normal.x, hit.point.y + 0.1f * hit.normal.y, transform.position.z);
 
-		}
+				}
 
 
 				if ((animator.transform.rotation.eulerAngles.y < 90 || animator.transform.rotation.eulerAngles.y > 270) && animator.transform.localScale.x == 1) {
@@ -50,9 +50,9 @@ public class Enemy1Movement : MonoBehaviour
 				counter += 2 * Time.deltaTime * Speed;
 				transform.position = new Vector3 (
 			(Mathf.Abs (wayPoints [i].transform.position.x - transform.position.x) > Speed * Time.deltaTime) ?
-			transform.position.x+ 0.1f * hit.normal.x + Speed * Mathf.Sign (wayPoints [i].transform.position.x - transform.position.x) * Time.deltaTime * Mathf.Abs (Mathf.Sin (counter)) : transform.position.x,
+			transform.position.x + 0.1f * hit.normal.x + Speed * Mathf.Sign (wayPoints [i].transform.position.x - transform.position.x) * Time.deltaTime * Mathf.Abs (Mathf.Sin (counter)) : transform.position.x,
 		    (Mathf.Abs (wayPoints [i].transform.position.y - transform.position.y) > Speed * Time.deltaTime) ?
-			transform.position.y+ 0.1f * hit.normal.y + Speed * Mathf.Sign (wayPoints [i].transform.position.y - transform.position.y) * Time.deltaTime * Mathf.Abs (Mathf.Sin (counter)) : transform.position.y);
+			transform.position.y + 0.1f * hit.normal.y + Speed * Mathf.Sign (wayPoints [i].transform.position.y - transform.position.y) * Time.deltaTime * Mathf.Abs (Mathf.Sin (counter)) : transform.position.y);
 				if (transform.position.x < wayPoints [i].transform.position.x) {
 						if (animator.transform.localScale.x == 1)
 								animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (animator.transform.rotation.z, 180, animator.transform.rotation.y), Time.deltaTime * 1.0f * Speed * 2);

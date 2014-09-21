@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy2Movement : MonoBehaviour
+public class RinoMovement : MonoBehaviour
 {
 	
 		public float Speed = 8.0f;
 		public float ChargeDistance = 3.0f;
 		public float StunTime = 1.0f;
 		public GameObject animator;
+		private Animator myAnimator;
 		bool charging = false;
 		bool stunned = false;
 		GameObject player;
@@ -18,6 +19,7 @@ public class Enemy2Movement : MonoBehaviour
 		void Start ()
 		{
 				player = GameObject.FindGameObjectWithTag ("Player");
+				myAnimator = animator.GetComponent<Animator> ();
 		}
 	
 		// Update is called once per frame
@@ -47,6 +49,7 @@ public class Enemy2Movement : MonoBehaviour
 						if (Physics.Raycast (ray1, out hit, 5.0f) || Physics.Raycast (ray2, out hit, ChargeDistance)) {
 
 								if (hit.collider.tag == "Player") {
+										myAnimator.SetBool ("isCharging", true);
 										charging = true;
 										direction = Mathf.Sign (player.transform.position.x - transform.position.x);
 								}
@@ -82,6 +85,7 @@ public class Enemy2Movement : MonoBehaviour
 				Debug.Log ("Impacto");
 				charging = false;
 				stunned = true;
+				myAnimator.SetBool ("isCharging", false);
 				StartCoroutine (StunWait ());
 				
 		}
@@ -90,7 +94,7 @@ public class Enemy2Movement : MonoBehaviour
 		{
 				yield return new WaitForSeconds (StunTime);
 				stunned = false;
-	}
+		}
 	
 }
 
