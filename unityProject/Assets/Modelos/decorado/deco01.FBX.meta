@@ -52,6 +52,29 @@ ModelImporter:
     100092: Plants13
     100094: Plants14
     100096: volcano01
+    100098: colision07
+    100100: colision08
+    100102: colision09
+    100104: colision11
+    100106: colision12
+    100108: colision13
+    100110: Object08
+    100112: Object09
+    100114: Plane02
+    100116: Plants15
+    100118: Plants16
+    100120: Plants17
+    100122: Plants18
+    100124: Plants19
+    100126: StoneWall04
+    100128: trees10
+    100130: trees11
+    100132: trees12
+    100134: volcano02
+    100136: StoneWall05
+    100138: StoneWall06
+    100140: colision14
+    100142: trees
     400000: //RootNode
     400002: Object01
     400004: StoneWall
@@ -101,6 +124,29 @@ ModelImporter:
     400092: Plants13
     400094: Plants14
     400096: volcano01
+    400098: colision07
+    400100: colision08
+    400102: colision09
+    400104: colision11
+    400106: colision12
+    400108: colision13
+    400110: Object08
+    400112: Object09
+    400114: Plane02
+    400116: Plants15
+    400118: Plants16
+    400120: Plants17
+    400122: Plants18
+    400124: Plants19
+    400126: StoneWall04
+    400128: trees10
+    400130: trees11
+    400132: trees12
+    400134: volcano02
+    400136: StoneWall05
+    400138: StoneWall06
+    400140: colision14
+    400142: trees
     2300000: Object01
     2300002: StoneWall
     2300004: StoneWall01
@@ -147,6 +193,29 @@ ModelImporter:
     2300086: Plants13
     2300088: Plants14
     2300090: volcano01
+    2300092: colision07
+    2300094: colision08
+    2300096: colision09
+    2300098: colision11
+    2300100: colision12
+    2300102: colision13
+    2300104: Object08
+    2300106: Object09
+    2300108: Plane02
+    2300110: Plants15
+    2300112: Plants16
+    2300114: Plants17
+    2300116: Plants18
+    2300118: Plants19
+    2300120: StoneWall04
+    2300122: trees10
+    2300124: trees11
+    2300126: trees12
+    2300128: volcano02
+    2300130: StoneWall05
+    2300132: StoneWall06
+    2300134: colision14
+    2300136: trees
     3300000: Object01
     3300002: StoneWall
     3300004: StoneWall01
@@ -193,6 +262,29 @@ ModelImporter:
     3300086: Plants13
     3300088: Plants14
     3300090: volcano01
+    3300092: colision07
+    3300094: colision08
+    3300096: colision09
+    3300098: colision11
+    3300100: colision12
+    3300102: colision13
+    3300104: Object08
+    3300106: Object09
+    3300108: Plane02
+    3300110: Plants15
+    3300112: Plants16
+    3300114: Plants17
+    3300116: Plants18
+    3300118: Plants19
+    3300120: StoneWall04
+    3300122: trees10
+    3300124: trees11
+    3300126: trees12
+    3300128: volcano02
+    3300130: StoneWall05
+    3300132: StoneWall06
+    3300134: colision14
+    3300136: trees
     4300000: StoneWall
     4300002: suelo
     4300004: Object01
@@ -239,6 +331,29 @@ ModelImporter:
     4300086: Object06
     4300088: Object07
     4300090: Plants14
+    4300092: Plants15
+    4300094: Object08
+    4300096: Object09
+    4300098: colision07
+    4300100: colision08
+    4300102: Plants16
+    4300104: Plants17
+    4300106: Plants18
+    4300108: trees10
+    4300110: trees11
+    4300112: Plants19
+    4300114: trees12
+    4300116: volcano02
+    4300118: StoneWall04
+    4300120: Plane02
+    4300122: colision09
+    4300124: colision11
+    4300126: colision12
+    4300128: colision13
+    4300130: StoneWall05
+    4300132: StoneWall06
+    4300134: trees
+    4300136: colision14
     9500000: //RootNode
   materials:
     importMaterials: 1
