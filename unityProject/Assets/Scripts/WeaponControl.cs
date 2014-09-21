@@ -12,6 +12,8 @@ public class WeaponControl : MonoBehaviour
 		public int RayVertices;
 		public float RayMovementSpeed;
 		public float RayMovementRange;
+		public Animator MyAnimator;
+
 		private float ammo;
 		private Vector3 AimTarget;
 		private RaycastHit fireHit;
@@ -99,6 +101,9 @@ public class WeaponControl : MonoBehaviour
 				//Keep track of the mouse
 				AimTarget = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
 				AimTarget.z = RayOrigin.position.z;
+
+				MyAnimator.SetFloat ("aimAngleSin", Mathf.Cos (Vector3.Angle (transform.up, AimTarget - RayOrigin.position) * Mathf.Deg2Rad));
+				print (Mathf.Cos (Vector3.Angle (transform.up, AimTarget - transform.position) * Mathf.Deg2Rad));
 
 				//Fire if so
 				if (isFiring) {
