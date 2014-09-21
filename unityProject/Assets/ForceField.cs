@@ -5,7 +5,7 @@ public class ForceField : MonoBehaviour
 {
 
 		public Vector3 Force;
-		public Vector3 Acceleration;
+		public Vector3 CharacterControllerSpeed;
 
 		void OnTriggerStay (Collider a_collider)
 		{
@@ -17,7 +17,7 @@ public class ForceField : MonoBehaviour
 				} else {
 						//print ("Char");
 						//Assume the collider is a CharacterController, apply acceleration
-						((CharacterController)a_collider).Move (Acceleration * Time.deltaTime * Time.deltaTime);
+						((CharacterController)a_collider).Move (CharacterControllerSpeed * Time.deltaTime);
 				}
 		}
 }

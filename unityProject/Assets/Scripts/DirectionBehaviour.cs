@@ -19,14 +19,4 @@ public class DirectionBehaviour : MonoBehaviour
 				transform.parent.localScale = new Vector3 (Direction, 1, 1);
 
 		}
-
-		public void StartEvent ()
-		{
-				print ("Start");
-		}
-
-		public void EndEvent ()
-		{
-				print ("End");
-		}
 }
