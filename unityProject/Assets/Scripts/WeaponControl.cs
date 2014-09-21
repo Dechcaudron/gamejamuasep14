@@ -13,14 +13,15 @@ public class WeaponControl : MonoBehaviour
 		public float RayMovementSpeed;
 		public float RayMovementRange;
 		public Animator MyAnimator;
-
+		public GameObject Pistol;
 		private float ammo;
 		private Vector3 AimTarget;
 		private RaycastHit fireHit;
 		private bool hitObstacle;
 		private bool is_firing;
 		private LineRenderer lineRenderer;
-
+		private bool aimForTarget;
+		private System.Timers.Timer aimTimer;
 		private float[] lineVertexPadding;
 		private bool[] lineVertexPaddingToPositive;
 
@@ -31,11 +32,18 @@ public class WeaponControl : MonoBehaviour
 				set {
 						is_firing = value;
 						lineRenderer.enabled = value;
+						if (!value) {
+								aimTimer.Start ();
+						} else {
+								aimTimer.Stop ();
+								startAiming ();
+						}
 				}
 		}
 
 		void Start ()
 		{
+
 				ammo = MaxAmmo;
 
 				lineRenderer = GetComponent<LineRenderer> ();
@@ -49,12 +57,39 @@ public class WeaponControl : MonoBehaviour
 						lineVertexPadding [i] = Random.Range (-RayMovementRange, RayMovementRange);
 						lineVertexPaddingToPositive [i] = lineVertexPadding [i] < 0;
 				}
+
+				Pistol.SetActive (WeaponUnlocked);
+				stopAiming ();
+				aimTimer = new System.Timers.Timer (3000);
+				aimTimer.Elapsed += aimTimeRunout;
+				aimTimer.AutoReset = false;
+		}
+
+		void aimTimeRunout (System.Object sender, System.Timers.ElapsedEventArgs args)
+		{
+				aimForTarget = false;
+		}
+
+		void stopAiming ()
+		{
+				aimForTarget = false;
+				MyAnimator.SetLayerWeight (1, 0);
+		}
+
+		void startAiming ()
+		{
+				aimForTarget = true;
+				MyAnimator.SetLayerWeight (1, 1);
 		}
 
 		void Update ()
 		{
 				if (!WeaponUnlocked)
 						return;
+
+				if (aimForTarget == false) {
+						stopAiming ();
+				}
 
 				if (Input.GetMouseButtonDown (0) && ammo > 0) {
 						isFiring = true;
@@ -98,12 +133,14 @@ public class WeaponControl : MonoBehaviour
 		{
 				if (!WeaponUnlocked)
 						return;
-				//Keep track of the mouse
-				AimTarget = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
-				AimTarget.z = RayOrigin.position.z;
 
-				MyAnimator.SetFloat ("aimAngleSin", Mathf.Cos (Vector3.Angle (transform.up, AimTarget - transform.position) * Mathf.Deg2Rad));
+				if (aimForTarget) {
+						//Keep track of the mouse
+						AimTarget = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
+						AimTarget.z = RayOrigin.position.z;
 
+						MyAnimator.SetFloat ("aimAngleSin", Mathf.Cos (Vector3.Angle (transform.up, AimTarget - transform.position) * Mathf.Deg2Rad));
+				}
 				//Fire if so
 				if (isFiring) {
 						ammo -= AmmoUseSpeed;
