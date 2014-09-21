@@ -57,14 +57,14 @@ public class RinoMovement : MonoBehaviour
 
 						if (transform.position.x < player.transform.position.x) {
 								if (animator.transform.localScale.x == 1)
-										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180, 0), Time.deltaTime * 1.0f * Speed * 2);
+										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0-30, 0), Time.deltaTime * 1.0f * Speed * 2);
 								else
-										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0, 0), Time.deltaTime * 1.0f * Speed * 2);
+					animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180-30, 0), Time.deltaTime * 1.0f * Speed * 2);
 						} else { 
 								if (animator.transform.localScale.x == 1)
-										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0, 0), Time.deltaTime * 1.0f * Speed * 2);
+					animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180+30, 0), Time.deltaTime * 1.0f * Speed * 2);
 								else
-										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180, 0), Time.deltaTime * 1.0f * Speed * 2);
+					animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0+30, 0), Time.deltaTime * 1.0f * Speed * 2);
 				
 						}
 
