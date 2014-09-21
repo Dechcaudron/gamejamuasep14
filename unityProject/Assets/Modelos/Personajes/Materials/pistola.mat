@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: caracolPincho
-  m_Shader: {fileID: 4800000, guid: 25995f4bfd22044b6b119be4d595cf0e, type: 3}
+  m_Name: pistola
+  m_Shader: {fileID: 4800000, guid: e43db7770ae4640efb56d97984bf4d13, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,24 +17,24 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 0dbdad63c546645d4b28e375da9be8ee, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
-        second: .319140941
+        second: .520009816
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 0}
+        second: {r: .449588329, g: .432525933, b: .470588207, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .889705896, g: .451394916, b: .451394916, a: 1}
+        second: {r: .395545006, g: .672294378, b: .867647052, a: 1}
       data:
         first:
           name: _Emission
-        second: {r: 0, g: 0, b: 0, a: .305882365}
+        second: {r: .147058845, g: .133001745, b: .133001745, a: 0}

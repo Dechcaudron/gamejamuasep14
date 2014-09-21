@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Water_Diffuse
-  m_Shader: {fileID: 31, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: DSC_4438
+  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,19 +17,20 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c2ef94ff9d11915d1100a04b44295342, type: 3}
-          m_Scale: {x: 7, y: 1}
+          m_Texture: {fileID: 2800000, guid: 911f017cb856d4995aa4ac3dd38a42ca, type: 3}
+          m_Scale: {x: 2, y: 2}
           m_Offset: {x: 0, y: 0}
+    m_Floats:
       data:
         first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 2800000, guid: a53cf5449d11a15d1100a04b44295342, type: 3}
-          m_Scale: {x: 7, y: 1}
-          m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+          name: _Shininess
+        second: .164847657
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: .517647088}
+        second: {r: .507352948, g: .507352948, b: .507352948, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .838235259, g: .721128881, b: .721128881, a: 1}
