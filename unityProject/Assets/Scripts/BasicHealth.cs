@@ -9,6 +9,12 @@ public class BasicHealth : MonoBehaviour
 				}
 		}
 
+		public float PercentualHealth {
+				get {
+						return health / maxHealth;
+				}
+		}
+
 		[SerializeField]
 		protected int
 				maxHealth;
@@ -25,6 +31,7 @@ public class BasicHealth : MonoBehaviour
 				health -= a_damage;
 				if (health <= 0) {
 						health = 0;
+						die ();
 				}
 		}
 

@@ -5,7 +5,25 @@ using System.Diagnostics;
 public class GameController : MonoBehaviour
 {
 		public const int NUMBER_OF_LEVELS = 1;
+
+		public CharacterHealth CharacterHealth;
+		public WeaponControl WeaponControl;
+
+		public static CharacterHealth CharHealth;
+		public static WeaponControl WeapControl;
+
 		private static Stopwatch gameWatch;
+
+		public static float Health {
+				get {
+						return CharHealth.PercentualHealth;
+				}
+		}
+		public static float Energy {
+				get {
+						return WeapControl.Ammo;
+				}
+		}
 
 		public static bool[] UnlockedLevels {
 				get;
@@ -33,7 +51,8 @@ public class GameController : MonoBehaviour
 
 		void Awake ()
 		{
-				//activeInstance = this;
+				CharHealth = this.CharacterHealth;
+				WeapControl = this.WeaponControl;
 		}
 
 		void Start ()

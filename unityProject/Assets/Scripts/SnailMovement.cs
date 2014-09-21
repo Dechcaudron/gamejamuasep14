@@ -4,6 +4,8 @@ using System.Collections;
 public class SnailMovement : MonoBehaviour
 {
 
+		public float Attack;
+
 		public float Speed = 1.0f;
 		float counter = 0.0f;
 		public GameObject[] wayPoints;
@@ -66,16 +68,16 @@ public class SnailMovement : MonoBehaviour
 				}
 
 		}
+
+		void OnCollisionEnter (Collision a_collision)
+		{
+				if (a_collision.collider.tag == "Player") {
+						a_collision.collider.GetComponent<CharacterHealth> ().TakeDamage (Attack);			
+				}
+		}
 	
 		void OnTriggerEnter (Collider item)
 		{
-
-				if (item.gameObject.tag == "Player") {
-						//Golpea al jugador
-			
-				}	
-
-
 
 				if (item == wayPoints [i].collider) {
 						//Debug.Log ("waypoint reached");

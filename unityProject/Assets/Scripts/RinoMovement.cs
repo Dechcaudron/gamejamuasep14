@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RinoMovement : MonoBehaviour
 {
+		public float Attack;
 	
 		public float Speed = 8.0f;
 		public float ChargeDistance = 3.0f;
@@ -57,14 +58,14 @@ public class RinoMovement : MonoBehaviour
 
 						if (transform.position.x < player.transform.position.x) {
 								if (animator.transform.localScale.x == 1)
-										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0-30, 0), Time.deltaTime * 1.0f * Speed * 2);
+										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0 - 30, 0), Time.deltaTime * 1.0f * Speed * 2);
 								else
-					animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180-30, 0), Time.deltaTime * 1.0f * Speed * 2);
+										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180 - 30, 0), Time.deltaTime * 1.0f * Speed * 2);
 						} else { 
 								if (animator.transform.localScale.x == 1)
-					animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180+30, 0), Time.deltaTime * 1.0f * Speed * 2);
+										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 180 + 30, 0), Time.deltaTime * 1.0f * Speed * 2);
 								else
-					animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0+30, 0), Time.deltaTime * 1.0f * Speed * 2);
+										animator.transform.rotation = Quaternion.Lerp (animator.transform.rotation, Quaternion.Euler (0, 0 + 30, 0), Time.deltaTime * 1.0f * Speed * 2);
 				
 						}
 
@@ -80,12 +81,12 @@ public class RinoMovement : MonoBehaviour
 		
 		}
 
-		void OnCollisionEnter (Collision player)
+		void OnCollisionEnter (Collision a_collision)
 		{
 
-				if (player.gameObject.tag == "Player") {
+				if (a_collision.collider.tag == "Player") {
 						//Golpea al jugador
-			
+						a_collision.collider.GetComponent<CharacterHealth> ().TakeDamage (Attack);
 				}	
 
 

@@ -9,26 +9,38 @@ public class CameraMovement : MonoBehaviour
 		public float MarginVDown;
 		public float MoveSpeed;
 
+		public Transform Parallax;
+		public float ParallaxMultiplierX;
+		public float ParallaxMultiplierY;
+
 		// Update is called once per frame
 		void Update ()
 		{
 				Vector3 screenPosition = camera.WorldToScreenPoint (Player.transform.position);
+				Vector3 t_camTranslation;
 
 				if (screenPosition.x / Screen.width > 1f - MarginH) {
-						//print (1f - screenPosition.x / Screen.width);
-						transform.Translate (MoveSpeed * Time.deltaTime * (screenPosition.x / Screen.width - (1f - MarginH)), 0, 0);
+						t_camTranslation = new Vector3 (MoveSpeed * Time.deltaTime * (screenPosition.x / Screen.width - (1f - MarginH)), 0, 0);
+						transform.Translate (t_camTranslation, Space.World);
+						Parallax.Translate (new Vector3 (t_camTranslation.x * ParallaxMultiplierX, t_camTranslation.y * ParallaxMultiplierY) * -1);
 				}
 
 				if (screenPosition.x / Screen.width < MarginH) {
-						transform.Translate (MoveSpeed * Time.deltaTime * (screenPosition.x / Screen.width - MarginH), 0, 0);
+						t_camTranslation = new Vector3 (MoveSpeed * Time.deltaTime * (screenPosition.x / Screen.width - MarginH), 0, 0);
+						transform.Translate (t_camTranslation, Space.World);
+						Parallax.Translate (new Vector3 (t_camTranslation.x * ParallaxMultiplierX, t_camTranslation.y * ParallaxMultiplierY) * -1);
 				}
 
 				if (screenPosition.y / Screen.height > 1f - MarginVUp) {
-						transform.Translate (0, MoveSpeed * Time.deltaTime * (screenPosition.y / Screen.height - (1f - MarginVUp)), 0);
+						t_camTranslation = new Vector3 (0, MoveSpeed * Time.deltaTime * (screenPosition.y / Screen.height - (1f - MarginVUp)), 0);
+						transform.Translate (t_camTranslation, Space.World);
+						Parallax.Translate (new Vector3 (t_camTranslation.x * ParallaxMultiplierX, t_camTranslation.y * ParallaxMultiplierY) * -1);
 				}
 		
 				if (screenPosition.y / Screen.height < MarginVDown) {
-						transform.Translate (0, MoveSpeed * Time.deltaTime * (screenPosition.y / Screen.height - MarginVDown), 0);
+						t_camTranslation = new Vector3 (0, MoveSpeed * Time.deltaTime * (screenPosition.y / Screen.height - MarginVDown), 0);
+						transform.Translate (t_camTranslation, Space.World);
+						Parallax.Translate (new Vector3 (t_camTranslation.x * ParallaxMultiplierX, t_camTranslation.y * ParallaxMultiplierY) * -1);
 				}
 	 		
 		}

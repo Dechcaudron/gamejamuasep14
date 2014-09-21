@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BatMovement : MonoBehaviour
 {
-
+		public float Attack;
 
 		public float Speed = 2.0f;
 		public float followDistance = 6.0f;
@@ -45,10 +45,11 @@ public class BatMovement : MonoBehaviour
 
 		}
 
-		void OnCollisionEnter (Collision player)
+		void OnCollisionEnter (Collision a_collision)
 		{
-				if (player.gameObject.tag == "Player") {
+				if (a_collision.gameObject.tag == "Player") {
 						//Golpear al jugador
+						a_collision.gameObject.GetComponent<CharacterHealth> ().TakeDamage (Attack);
 
 				}
 		}

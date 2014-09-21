@@ -25,6 +25,12 @@ public class WeaponControl : MonoBehaviour
 		private float[] lineVertexPadding;
 		private bool[] lineVertexPaddingToPositive;
 
+		public float Ammo {
+				get {
+						return ammo / MaxAmmo;
+				}
+		}
+
 		private bool isFiring {
 				get {
 						return is_firing;
@@ -122,9 +128,6 @@ public class WeaponControl : MonoBehaviour
 								//Update vertex position
 								float b_finalPositionx = lineVertexPadding [i] / Mathf.Sqrt (Mathf.Pow (t_fireVector.x / t_fireVector.y, 2) + 1);
 								lineRenderer.SetPosition (i, (new Vector3 (b_finalPositionx, -t_fireVector.x * b_finalPositionx / t_fireVector.y) + t_fireVector * i + RayOrigin.position));
-								//lineRenderer.SetPosition (i, t_fireVector * i + RayOrigin.position);
-								print (-t_fireVector.x * b_finalPositionx / t_fireVector.y);
-								//print (AimTarget);
 						}
 				}
 		}
