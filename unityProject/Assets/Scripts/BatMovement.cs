@@ -35,6 +35,10 @@ public class BatMovement : MonoBehaviour
 						transform.position = Vector3.Lerp (transform.position, objective, Time.deltaTime);
 				}
 
+		if (Mathf.Abs (player.transform.position.x - transform.position.x) + Mathf.Abs (player.transform.position.y - transform.position.y) < 1.0f) {
+				//Animacion de ataque
+		}
+
 
 
 		}
@@ -47,8 +51,10 @@ public class BatMovement : MonoBehaviour
 
 		void OnCollisionEnter (Collision a_collision)
 		{
+		Debug.Log ("Ouch"+a_collision);
 				if (a_collision.gameObject.tag == "Player") {
 						//Golpear al jugador
+						
 						a_collision.gameObject.GetComponent<CharacterHealth> ().TakeDamage (Attack);
 
 				}
