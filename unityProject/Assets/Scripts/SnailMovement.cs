@@ -67,11 +67,18 @@ public class SnailMovement : MonoBehaviour
 
 		}
 	
-		void OnTriggerEnter (Collider waypoint)
+		void OnTriggerEnter (Collider item)
 		{
-				//Debug.Log ("waypoint reached");
+
+				if (item.gameObject.tag == "Player") {
+						//Golpea al jugador
+			
+				}	
+
+
 
 				if (waypoint == wayPoints [i].collider) {
+						//Debug.Log ("waypoint reached");
 						i++;
 						if (i == wayPoints.Length) {
 								i = 0;

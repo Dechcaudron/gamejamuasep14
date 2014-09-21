@@ -82,7 +82,14 @@ public class RinoMovement : MonoBehaviour
 
 		void OnCollisionEnter (Collision player)
 		{
-				Debug.Log ("Impacto");
+
+				if (player.gameObject.tag == "Player") {
+						//Golpea al jugador
+			
+				}	
+
+
+				//Debug.Log ("Impacto");
 				charging = false;
 				stunned = true;
 				myAnimator.SetBool ("isCharging", false);
