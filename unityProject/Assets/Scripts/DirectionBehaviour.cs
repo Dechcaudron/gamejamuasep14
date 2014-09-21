@@ -4,6 +4,7 @@ using System.Collections;
 public class DirectionBehaviour : MonoBehaviour
 {
 		public sbyte Direction;
+		public Animator MyAnimator;
 		public const sbyte RIGHT = 1;
 		public const sbyte LEFT = -1;
 
@@ -14,8 +15,9 @@ public class DirectionBehaviour : MonoBehaviour
 
 		public void ChangeDirection ()
 		{
-				print ("I changed direction");
+				//print ("I changed direction");
 				Direction *= -1;
+				MyAnimator.SetBool ("isFacingRight", Direction > 0);
 				transform.parent.localScale = new Vector3 (Direction, 1, 1);
 
 		}

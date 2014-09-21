@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
 		bool canJump = true;
 		bool doubleJumpUnlocked = true;
 		bool canDoubleJump = true;
+		bool isFacingRight;
 		CharacterController controller;
 		public StepBehaviour MyStepBehaviour;
 	
@@ -21,6 +22,7 @@ public class Movement : MonoBehaviour
 		{
 				controller = GetComponent<CharacterController> ();
 				myAnimator = prota.GetComponent<Animator> ();
+				myAnimator.SetBool ("isFacingRight", true);
 		}
 	
 		// Update is called once per frame
@@ -38,33 +40,40 @@ public class Movement : MonoBehaviour
 				if (canJump && Input.GetButtonDown ("Jump")) {
 						ySpeed = controller.velocity.y + jumpSpeed;
 						canJump = false;
+						myAnimator.SetTrigger ("startJump");
 				} else if (doubleJumpUnlocked) {
 						if (canDoubleJump && Input.GetButtonDown ("Jump")) {
 								ySpeed = jumpSpeed;
 								canDoubleJump = false;
+								myAnimator.SetTrigger ("startJump");
 						}
 				}
 
 				ySpeed += Physics.gravity.y * Time.deltaTime;
 				xSpeed = runSpeed * Input.GetAxis ("Horizontal");
+				myAnimator.SetFloat ("protaSpeed", xSpeed);
 		
 				controller.Move (new Vector3 (xSpeed, ySpeed) * Time.deltaTime);
 				if (controller.isGrounded) {
-						myAnimator.SetBool ("touchingGround", true);
-						if (xSpeed < -1) {
-								
+						myAnimator.SetBool ("isFalling", false);
+						if (xSpeed < -0.5) {
+								//myAnimator.SetBool ("isFacingRight", false);
 
-						} else if (xSpeed > 1) {
-								
+						} else if (xSpeed > 0.5) {
+								//myAnimator.SetBool ("isFacingRight", true);
 
 						} else if (xSpeed == 0) {
 
 						}
 
-						myAnimator.SetFloat ("protaSpeed", xSpeed);
+						
 
 				} else {
-						JumpAnimation ();
+						if (controller.velocity.y < -0.05) {
+								myAnimator.SetBool ("isFalling", true);
+
+						}
+						//JumpAnimation ();
 				}
 		}
 
