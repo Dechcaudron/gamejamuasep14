@@ -77,7 +77,7 @@ public class SnailMovement : MonoBehaviour
 
 
 
-				if (waypoint == wayPoints [i].collider) {
+				if (item == wayPoints [i].collider) {
 						//Debug.Log ("waypoint reached");
 						i++;
 						if (i == wayPoints.Length) {
