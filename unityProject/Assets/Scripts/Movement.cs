@@ -13,9 +13,7 @@ public class Movement : MonoBehaviour
 		bool canJump = true;
 		bool doubleJumpUnlocked = true;
 		bool canDoubleJump = true;
-		bool lookingRight = true;
 		CharacterController controller;
-
 		public StepBehaviour MyStepBehaviour;
 	
 		// Use this for initialization
@@ -54,9 +52,11 @@ public class Movement : MonoBehaviour
 				if (controller.isGrounded) {
 						myAnimator.SetBool ("touchingGround", true);
 						if (xSpeed < -1) {
-								lookingRight = false;
+								
+
 						} else if (xSpeed > 1) {
-								lookingRight = true;
+								
+
 						} else if (xSpeed == 0) {
 
 						}
@@ -66,6 +66,11 @@ public class Movement : MonoBehaviour
 				} else {
 						JumpAnimation ();
 				}
+		}
+
+		void FixedUpdate ()
+		{
+				transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
 		}
 
 		void JumpAnimation ()

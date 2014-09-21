@@ -102,8 +102,7 @@ public class WeaponControl : MonoBehaviour
 				AimTarget = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, transform.position.z - Camera.main.transform.position.z));
 				AimTarget.z = RayOrigin.position.z;
 
-				MyAnimator.SetFloat ("aimAngleSin", Mathf.Cos (Vector3.Angle (transform.up, AimTarget - RayOrigin.position) * Mathf.Deg2Rad));
-				print (Mathf.Cos (Vector3.Angle (transform.up, AimTarget - transform.position) * Mathf.Deg2Rad));
+				MyAnimator.SetFloat ("aimAngleSin", Mathf.Cos (Vector3.Angle (transform.up, AimTarget - transform.position) * Mathf.Deg2Rad));
 
 				//Fire if so
 				if (isFiring) {
